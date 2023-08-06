@@ -121,7 +121,7 @@
     "session_confirm_finish_session": "Would you like to finish your workout session?",
 
     "instruction_select_language": "Select your langauge",
-    "instruction_ask_name_msg": "Welcome to Workout Tracker!\nWhat's your name?",
+    "instruction_ask_name_msg": "Welcome to FitTracker - Workout tracker!\nWhat's your name?",
     "instruction_name_msg": "Please enter your name",
     "instruction_creating_db": "Creating Database.\nPlease Wait.",
     "instruction_initial_setting": "Please Select your initial setting",
