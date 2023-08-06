@@ -232,7 +232,7 @@ class _CalendarState extends State<CalendarWidget>{
           appBar: AppBar(
             toolbarHeight: 100,
             elevation: 0,
-            backgroundColor: Colors.amberAccent,
+            backgroundColor: Colors.deepPurpleAccent,
             title: FlexibleSpaceBar(
               titlePadding: EdgeInsetsDirectional.only(start: 56, top: 36),
               title: Text('Calendar',
@@ -249,7 +249,7 @@ class _CalendarState extends State<CalendarWidget>{
                 pinned: true,
                 snap: false,
                 floating: false,
-                backgroundColor: Colors.amberAccent,
+                backgroundColor: Colors.deepPurpleAccent,
                 expandedHeight: 100.0,
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(AppLocalizations.of(context)!.workout_history),

@@ -160,7 +160,7 @@ class _InstructionState extends State<InstructionWidget>{
                     child: Card(
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
                     margin: EdgeInsets.fromLTRB(0, 25, 0, 10),
-                    color: Colors.amber,
+                    color: Colors.deepPurple,
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -241,7 +241,7 @@ class _InstructionState extends State<InstructionWidget>{
                 Card(
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
                     margin: EdgeInsets.fromLTRB(40, 10, 40, 10),
-                    color: Colors.amber,
+                    color: Colors.deepPurple,
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -406,7 +406,7 @@ class _InstructionState extends State<InstructionWidget>{
                 Card(
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
                     margin: EdgeInsets.fromLTRB(40, 10, 40, 10),
-                    color: Colors.amber,
+                    color: Colors.deepPurple,
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -455,7 +455,7 @@ class _InstructionState extends State<InstructionWidget>{
               )
           ),
         ),
-        SpinKitPouringHourGlassRefined(color: Colors.amberAccent),
+        SpinKitPouringHourGlassRefined(color: Colors.deepPurpleAccent),
       ],
     );
   }

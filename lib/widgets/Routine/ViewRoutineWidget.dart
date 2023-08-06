@@ -134,7 +134,7 @@ class _ViewRoutineEntryState extends State<ViewRoutineEntryWidget> {
             child: new Scaffold(
                 appBar: AppBar(
                   title: Text(AppLocalizations.of(context)!.routine_details),
-                  backgroundColor: Colors.amberAccent,
+                  backgroundColor: Colors.deepPurpleAccent,
                   actions: _buildActions(),
                 ),
                 body: Builder(

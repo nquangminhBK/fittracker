@@ -87,7 +87,7 @@ Widget KeyboardKey(String text, Function method)
         child: Container(
           margin: EdgeInsets.all(2),
           decoration: BoxDecoration(
-            color: Colors.amber.shade300,
+            color: Colors.deepPurple.shade300,
             borderRadius: BorderRadius.all(Radius.circular(40)),
           ),
           child: Center(
@@ -215,7 +215,7 @@ void editText(String key, int textLimit, TextEditingController editingController
 Widget customKeyboard(TextEditingController editingController, bool showKeyboard, int textLimit, [Function? method])
 {
   return Container(
-    color: Colors.amber.shade50,
+    color: Colors.deepPurple.shade50,
     padding: EdgeInsets.fromLTRB(4, 6, 4, 6),
     height: 240.0,
     child: InkWell(

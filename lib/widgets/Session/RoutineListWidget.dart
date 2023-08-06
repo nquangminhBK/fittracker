@@ -136,7 +136,7 @@ class _RoutineListState extends State<RoutineListWidget> {
         child: Scaffold(
             appBar: AppBar(
               title: Text(AppLocalizations.of(context)!.session_choose_routine),
-              backgroundColor: Colors.amberAccent,
+              backgroundColor: Colors.deepPurpleAccent,
             ),
             body:
             Column(

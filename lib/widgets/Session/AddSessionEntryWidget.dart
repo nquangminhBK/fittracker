@@ -137,7 +137,7 @@ class _AddSessionEntryState extends State<AddSessionEntryWidget> {
                   setState(() {});
                   setDialogState((){});
                 } ,
-              partList.contains(p.name) ? Colors.amber : Colors.black12)
+              partList.contains(p.name) ? Colors.deepPurple : Colors.black12)
       );
     }
     return tagList;
@@ -149,7 +149,7 @@ class _AddSessionEntryState extends State<AddSessionEntryWidget> {
     List<Widget> tagList = [];
 
     for(int i = 0; i < partList.length; i++)
-      tagList.add(tag(PartType.values.firstWhere((element) => element.name == partList[i]).toLanguageString(locale), (){_openTagPopup(context);}, Colors.amberAccent));
+      tagList.add(tag(PartType.values.firstWhere((element) => element.name == partList[i]).toLanguageString(locale), (){_openTagPopup(context);}, Colors.deepPurpleAccent));
     if(partList.length == 0)
       tagList.add(tag(" + " + AppLocalizations.of(context)!.add_part + "  ", (){_openTagPopup(context);}, Color.fromRGBO(230, 230, 230, 0.8)));
     return tagList;
@@ -930,7 +930,7 @@ class _AddSessionEntryState extends State<AddSessionEntryWidget> {
                 appBar: AppBar(
                   title: Text(widget.edit ? AppLocalizations.of(context)!.session_edit_session : AppLocalizations.of(context)!.session_add_session),
                   actions: _buildActions(),
-                  backgroundColor: Colors.amberAccent,
+                  backgroundColor: Colors.deepPurpleAccent,
                 ),
                 body: Builder(
                     builder: (context) =>

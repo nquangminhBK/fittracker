@@ -69,7 +69,7 @@ class _WorkoutListState extends State<WorkoutListWidget> {
                   partList.add(p.name);
                 setState(() {});
               } ,
-              partList.contains(p.name) ? Colors.amber : Colors.black12)
+              partList.contains(p.name) ? Colors.deepPurple : Colors.black12)
       );
     }
     return tagList;
@@ -279,7 +279,7 @@ class _WorkoutListState extends State<WorkoutListWidget> {
             appBar: AppBar(
               title: _isSearching ? _buildSearchField() : Text(AppLocalizations.of(context)!.workout_list),
               actions: _buildActions(),
-              backgroundColor: Colors.amberAccent,
+              backgroundColor: Colors.deepPurpleAccent,
             ),
             body:
             Column(

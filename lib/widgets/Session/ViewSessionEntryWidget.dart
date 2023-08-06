@@ -347,7 +347,7 @@ class _ViewSessionEntryState extends State<ViewSessionEntryWidget> {
                 appBar: AppBar(
                   title: Text(AppLocalizations.of(context)!.session_info),
                   actions: _buildActions(),
-                  backgroundColor: Colors.amberAccent,
+                  backgroundColor: Colors.deepPurpleAccent,
                 ),
                 body: Builder(
                     builder: (context) =>

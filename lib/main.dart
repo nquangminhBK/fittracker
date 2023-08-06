@@ -56,7 +56,7 @@ class _MyAppState extends State<MyApp> {
         title: 'Workout Tracker',
         theme: ThemeData(
           brightness: Brightness.light,
-          primarySwatch: Colors.amber,
+          primarySwatch: Colors.deepPurple,
         ),
         localizationsDelegates: [AppLocalizations.delegate, MaterialLocalizationKrDelegate(), CupertinoLocalizationKrDelegate()],
         supportedLocales: AppLocalizations.supportedLocales,

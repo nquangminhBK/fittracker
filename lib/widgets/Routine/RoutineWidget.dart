@@ -221,7 +221,7 @@ class _RoutineState extends State<RoutineWidget>{
                 pinned: true,
                 snap: false,
                 floating: false,
-                backgroundColor: Colors.amberAccent,
+                backgroundColor: Colors.deepPurpleAccent,
                 expandedHeight: 100.0,
                 actions: _buildActions(),
                 flexibleSpace: FlexibleSpaceBar(

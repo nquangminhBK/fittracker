@@ -296,7 +296,7 @@ class _SettingsState extends State<SettingsWidget> {
                    pinned: true,
                    snap: false,
                    floating: false,
-                   backgroundColor: Colors.amberAccent,
+                   backgroundColor: Colors.deepPurpleAccent,
                    expandedHeight: 100.0,
                    flexibleSpace: FlexibleSpaceBar(
                      title: Text(AppLocalizations.of(context)!.settings),

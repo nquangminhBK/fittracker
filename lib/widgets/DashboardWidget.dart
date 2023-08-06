@@ -171,7 +171,7 @@ class _DashboardState extends State<DashboardWidget>{
                         margin: EdgeInsets.fromLTRB(10, 5, 5, 5),
                         child: CircleAvatar(
                           radius: 42,
-                          backgroundColor: Colors.amberAccent,
+                          backgroundColor: Colors.deepPurpleAccent,
                           child: CircleAvatar(
                             radius: 40,
                             child: (img_file != null) ?
@@ -299,7 +299,7 @@ class _DashboardState extends State<DashboardWidget>{
                 pinned: true,
                 snap: false,
                 floating: false,
-                backgroundColor: Colors.amberAccent,
+                backgroundColor: Colors.deepPurpleAccent,
                 expandedHeight: 100.0,
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(AppLocalizations.of(context)!.dashboard),
@@ -316,7 +316,7 @@ class _DashboardState extends State<DashboardWidget>{
                                 borderRadius: BorderRadius.circular(10.0)
                             ),
                             margin: EdgeInsets.fromLTRB(5, 5, 2, 5),
-                            color: Colors.amber,
+                            color: Colors.deepPurple,
                             child: new InkWell(
                                 borderRadius: BorderRadius.circular(10.0),
                                 onTap: (){startNewSession(context);},
@@ -339,7 +339,7 @@ class _DashboardState extends State<DashboardWidget>{
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10.0)
                                 ),
-                                color: Colors.amberAccent,
+                                color: Colors.deepPurpleAccent,
                                 margin: EdgeInsets.fromLTRB(2, 5, 5, 5),
                                 child: new InkWell(
                                     borderRadius: BorderRadius.circular(10.0),

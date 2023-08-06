@@ -107,7 +107,7 @@ class _ViewWorkoutWidget extends State<ViewWorkoutWidget> {
             child: new Scaffold(
                 appBar: AppBar(
                   title: Text(AppLocalizations.of(context)!.workout_details),
-                  backgroundColor: Colors.amberAccent,
+                  backgroundColor: Colors.deepPurpleAccent,
                   actions: _buildActions(),
                 ),
                 body: Builder(

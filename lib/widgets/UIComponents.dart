@@ -21,7 +21,7 @@ Widget tag(String caption, onTap, color) {
               ),
               child: Text(caption,
                 style: TextStyle(
-                  color: Colors.black54,
+                  color: color == Colors.deepPurpleAccent || color == Colors.deepPurple ? Colors.white: Colors.black54,
                   fontSize: 15.0,
                 ),
               ),

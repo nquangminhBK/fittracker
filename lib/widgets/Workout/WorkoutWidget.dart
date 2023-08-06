@@ -132,7 +132,7 @@ class _WorkoutState extends State<WorkoutWidget> {
                   partList.add(p.name);
                 setState(() {});
               } ,
-              partList.contains(p.name) ? Colors.amber : Colors.black12)
+              partList.contains(p.name) ? Colors.deepPurple : Colors.black12)
       );
     }
     return tagList;
@@ -338,7 +338,7 @@ class _WorkoutState extends State<WorkoutWidget> {
                 pinned: true,
                 snap: false,
                 floating: false,
-                backgroundColor: Colors.amberAccent,
+                backgroundColor: Colors.deepPurpleAccent,
                 expandedHeight: _isSearching ? 0 : 100.0,
                 actions: _buildActions(),
                 title: _isSearching ? _buildSearchField() : Container(),

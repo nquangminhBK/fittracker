@@ -53,7 +53,7 @@ class _ProfileSettingsState extends State<ProfileSettingsWidget> {
         uiSettings: [
           AndroidUiSettings(
               toolbarTitle: AppLocalizations.of(context)!.settings_crop_image,
-              toolbarColor: Colors.amberAccent,
+              toolbarColor: Colors.deepPurpleAccent,
               toolbarWidgetColor: Colors.black,
               initAspectRatio: CropAspectRatioPreset.square,
               lockAspectRatio: true
@@ -129,7 +129,7 @@ class _ProfileSettingsState extends State<ProfileSettingsWidget> {
                             children: [
                               CircleAvatar(
                                 radius: 63,
-                               backgroundColor: Colors.amberAccent,
+                               backgroundColor: Colors.deepPurpleAccent,
                                 child: CircleAvatar(
                                   radius: 60,
                                   child: (img_file != null || img != null) ?
