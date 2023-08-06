@@ -49,6 +49,7 @@ Widget CardButton(color, text, onTap)
                     title: Text(text,
                       style: TextStyle(
                         fontSize: 18,
+                        color: Colors.white
                       ),
                       textAlign: TextAlign.center,
                     )

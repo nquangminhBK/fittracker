@@ -112,10 +112,10 @@ class _ProfileSettingsState extends State<ProfileSettingsWidget> {
                 pinned: true,
                 snap: false,
                 floating: false,
-                backgroundColor: Color.fromRGBO(0, 0, 0, 0.05),
+                backgroundColor: Colors.deepPurpleAccent,
                 expandedHeight: 100.0,
                 flexibleSpace: FlexibleSpaceBar(
-                  title: Text(AppLocalizations.of(context)!.settings_edit_profile),
+                  title: Text(AppLocalizations.of(context)!.settings_edit_profile, style: TextStyle(color: Colors.white),),
                 ),
               ),
               SliverList(
@@ -139,7 +139,7 @@ class _ProfileSettingsState extends State<ProfileSettingsWidget> {
                                   Icon(
                                     Icons.person,
                                     size: 60,
-                                    color: Colors.black54,
+                                    color: Colors.white,
                                   ),
                                 ),
                               ),

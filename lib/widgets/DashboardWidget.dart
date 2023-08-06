@@ -181,7 +181,7 @@ class _DashboardState extends State<DashboardWidget>{
                             Icon(
                               Icons.person,
                               size: 40,
-                              color: Colors.black54,
+                              color: Colors.white,
                             ),
                           ),
                         ),
@@ -326,6 +326,7 @@ class _DashboardState extends State<DashboardWidget>{
                                     child:Text(AppLocalizations.of(context)!.dashboard_start_workout,
                                       style: TextStyle(
                                         fontSize: 16,
+                                        color: Colors.white
                                       ),
                                     )
                                   ),
@@ -350,6 +351,7 @@ class _DashboardState extends State<DashboardWidget>{
                                           child:Text(AppLocalizations.of(context)!.dashboard_start_routine,
                                             style: TextStyle(
                                             fontSize: 16,
+                                              color: Colors.white
                                             ),
                                           )
                                       ),
