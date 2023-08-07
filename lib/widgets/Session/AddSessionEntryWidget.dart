@@ -457,7 +457,7 @@ class _AddSessionEntryState extends State<AddSessionEntryWidget> {
           if(![MetricType.duration.name].contains(workoutCardList[cardInd].entry.metric))
             new Container(
               width: 72,
-              height: 40,
+              height: 56,
               child: new TextField(
                 onTap: (){
                   setState(() {
