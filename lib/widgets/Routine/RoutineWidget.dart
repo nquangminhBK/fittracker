@@ -8,6 +8,7 @@ import 'package:fittracker/widgets/Routine/ViewRoutineWidget.dart';
 import 'dart:math';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fittracker/widgets/UIComponents.dart';
+import 'package:lottie/lottie.dart';
 
 class RoutineWidget extends StatefulWidget {
   late ObjectBox objectbox;
@@ -118,12 +119,18 @@ class _RoutineState extends State<RoutineWidget>{
       return List.from(
           [
             Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-              child: Text(
-                AppLocalizations.of(context)!.routine_not_found,
-                style: TextStyle(fontSize: 14),
-              ),
+                alignment: Alignment.center,
+                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                child: Column(children: [
+                  Container(
+                    child: Lottie.asset('assets/empty.json'),
+                    width: MediaQuery.of(context).size.width * 0.5,
+                  ),
+                  Text(
+                    AppLocalizations.of(context)!.routine_not_found,
+                    style: TextStyle(fontSize: 14),
+                  ),
+                ],)
             )
           ]);
 
