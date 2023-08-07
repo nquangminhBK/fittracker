@@ -118,7 +118,7 @@ class _ViewWorkoutWidget extends State<ViewWorkoutWidget> {
                               children: <Widget>[
                                 // System Values
                                 Container(
-                                    padding: EdgeInsets.fromLTRB(15, 15, 0, 0),
+                                    padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
                                     child: Text(workoutEntry!.caption,
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
