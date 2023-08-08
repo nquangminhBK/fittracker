@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'package:fittracker/util/loading_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:fittracker/class/CupertinoLocalizationKrDelegate.dart';
 import 'package:fittracker/class/MaterialLocalizationKrDelegate.dart';
 import 'package:fittracker/util/objectbox.dart';
 import 'package:fittracker/widgets/HomeWidget.dart';
 import 'package:fittracker/widgets/InstructionWidget.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
@@ -13,7 +15,7 @@ late ObjectBox objectbox;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   objectbox = await ObjectBox.create();
-
+  LoadingUtils.instance.configLoading();
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       home:MyApp()
@@ -53,11 +55,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Workout Tracker',
+        title: 'FitTracker',
         theme: ThemeData(
           brightness: Brightness.light,
           primarySwatch: Colors.deepPurple,
         ),
+        builder: EasyLoading.init(),
         localizationsDelegates: [AppLocalizations.delegate, MaterialLocalizationKrDelegate(), CupertinoLocalizationKrDelegate()],
         supportedLocales: AppLocalizations.supportedLocales,
         locale: _locale,

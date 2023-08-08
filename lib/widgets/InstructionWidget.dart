@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fittracker/util/loading_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:fittracker/dbModels/workout_entry_model.dart';
 import 'package:fittracker/main.dart';
@@ -6,6 +8,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:fittracker/util/typedef.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class InstructionWidget extends StatefulWidget {
   final BuildContext parentCtx;
@@ -19,7 +22,7 @@ class InstructionWidget extends StatefulWidget {
 
 class _InstructionState extends State<InstructionWidget> {
   final pageController = PageController(initialPage: 0);
-  TextEditingController userName = new TextEditingController();
+  String userName = "";
   Map<String, String> languages = {'English': 'en', '한국어': 'kr'};
 
   String distance = "km";
@@ -41,10 +44,60 @@ class _InstructionState extends State<InstructionWidget> {
     setState(() {});
   }
 
+  void loginWithGoogle(BuildContext context) async {
+    LoadingUtils.instance.showLoading();
+    try {
+      GoogleSignIn().signIn().then((googleUser) async {
+        final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+        print("minh check $googleAuth");
+        print("minh check $googleUser");
+        if (googleAuth != null) {
+          final credential = GoogleAuthProvider.credential(
+            accessToken: googleAuth?.accessToken,
+            idToken: googleAuth?.idToken,
+          );
+          await FirebaseAuth.instance.signInWithCredential(credential).then((userCredential) async {
+            print("minh check $userCredential");
+            LoadingUtils.instance.hideLoading();
+            print(googleUser);
+            if (googleUser == null) return;
+            String userAvatar = googleUser.photoUrl ?? "";
+            userName = googleUser.displayName ?? "";
+            String email = googleUser.email ?? "";
+            String userId = googleUser.id ?? "";
+          }, onError: (e) {
+            print("minh check error1 $e");
+            showSnackBar(
+              context,
+              AppLocalizations.of(context)!.loginError,
+            );
+            LoadingUtils.instance.hideLoading();
+          });
+        } else {
+          LoadingUtils.instance.hideLoading();
+        }
+      }, onError: (e) {
+        showSnackBar(
+          context,
+          AppLocalizations.of(context)!.loginError,
+        );
+        print("minh check error2 $e");
+        LoadingUtils.instance.hideLoading();
+      });
+    } catch (e) {
+      print("minh check error3 $e");
+      showSnackBar(
+        context,
+        AppLocalizations.of(context)!.loginError,
+      );
+      LoadingUtils.instance.hideLoading();
+    }
+  }
+
   finishSplash() async {
     nextPage();
     objectbox.setPref('show_instruction', false);
-    objectbox.setPref('user_name', userName.text);
+    objectbox.setPref('user_name', userName);
     objectbox.setPref('version', '1.0.0');
     addInitialWorkouts();
     await Future.delayed(const Duration(seconds: 2), () {});
@@ -205,35 +258,28 @@ class _InstructionState extends State<InstructionWidget> {
                     fontSize: 20,
                   ),
                 ))),
-            Card(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-                margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                child: Center(
-                  child: ListTile(
-                      title: new Row(
-                    children: <Widget>[
-                      Flexible(
-                          child: TextField(
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: AppLocalizations.of(context)!.enter_name,
-                        ),
-                        controller: userName,
-                        textAlign: TextAlign.center,
-                      ))
-                    ],
-                  )),
-                )),
+            // Card(
+            //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+            //     margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+            //     child: Center(
+            //       child: ListTile(
+            //           title: new Row(
+            //         children: <Widget>[
+            //           Flexible(
+            //               child: TextField(
+            //             decoration: InputDecoration(
+            //               border: InputBorder.none,
+            //               hintText: AppLocalizations.of(context)!.enter_name,
+            //             ),
+            //             controller: userName,
+            //             textAlign: TextAlign.center,
+            //           ))
+            //         ],
+            //       )),
+            //     )),
             GestureDetector(
               onTap: () {
-                if (userName.text.isEmpty) {
-                  final snackBar = SnackBar(
-                    content: Text(AppLocalizations.of(context)!.instruction_name_msg),
-                  );
-                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                  return;
-                }
-                nextPage();
+                loginWithGoogle(context);
               },
               child: Card(
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
@@ -243,7 +289,7 @@ class _InstructionState extends State<InstructionWidget> {
                       child: Container(
                     margin: EdgeInsets.only(top: 15, bottom: 15),
                     child: Text(
-                      AppLocalizations.of(context)!.next,
+                      'Continue with Google',
                       style: TextStyle(fontSize: 18, color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
@@ -377,7 +423,7 @@ class _InstructionState extends State<InstructionWidget> {
                 )),
             GestureDetector(
               onTap: () {
-                if (userName.text.isEmpty) {
+                if (userName.isEmpty) {
                   final snackBar = SnackBar(
                     content: Text(AppLocalizations.of(context)!.instruction_name_msg),
                   );
