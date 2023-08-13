@@ -8,12 +8,18 @@ import 'package:fittracker/widgets/HomeWidget.dart';
 import 'package:fittracker/widgets/InstructionWidget.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import 'package:firebase_core/firebase_core.dart';
 
 late ObjectBox objectbox;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: const FirebaseOptions(
+      apiKey: "AIzaSyBfTuHcNGI3wGPhAwMl5SruhpKaUcOfve8",
+      appId: "1:747710090792:ios:86952449356679ea186f1d",
+      messagingSenderId: "747710090792",
+      projectId: "fittracker-57f6c"));
   objectbox = await ObjectBox.create();
   LoadingUtils.instance.configLoading();
   runApp(MaterialApp(

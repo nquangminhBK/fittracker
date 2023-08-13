@@ -49,13 +49,14 @@ class _InstructionState extends State<InstructionWidget> {
     try {
       GoogleSignIn().signIn().then((googleUser) async {
         final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
-        print("minh check $googleAuth");
-        print("minh check $googleUser");
+        print("minh check idToken, ${googleAuth?.idToken??""}");
+        print("minh check accessToken, ${googleAuth?.accessToken??""}");
         if (googleAuth != null) {
           final credential = GoogleAuthProvider.credential(
             accessToken: googleAuth?.accessToken,
             idToken: googleAuth?.idToken,
           );
+          print("minh check credential $credential");
           await FirebaseAuth.instance.signInWithCredential(credential).then((userCredential) async {
             print("minh check $userCredential");
             LoadingUtils.instance.hideLoading();
@@ -65,6 +66,7 @@ class _InstructionState extends State<InstructionWidget> {
             userName = googleUser.displayName ?? "";
             String email = googleUser.email ?? "";
             String userId = googleUser.id ?? "";
+            nextPage();
           }, onError: (e) {
             print("minh check error1 $e");
             showSnackBar(
